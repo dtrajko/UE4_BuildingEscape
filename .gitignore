@@ -1,0 +1,12 @@
+# Unreal derived directories
+Binaries/
+Build/
+DerivedDataCache/
+Intermediate/
+Saved/
+Content/StarterContent/Textures/
+Content/StarterContent/HDRI/
+
+# Visual Studio derived files
+*.VC.db
+*.VC.opendb
