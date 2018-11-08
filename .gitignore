@@ -10,3 +10,4 @@ Content/StarterContent/HDRI/
 # Visual Studio derived files
 *.VC.db
 *.VC.opendb
+.vs/**/ipch/
