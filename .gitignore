@@ -8,7 +8,7 @@ Content/StarterContent/Textures/
 Content/StarterContent/HDRI/
 
 # Visual Studio derived files
+.vs/**/ipch/
 *.VC.db
 *.VC.opendb
-.vs/**/ipch/
 *.VC.db-wal
