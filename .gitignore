@@ -11,3 +11,4 @@ Content/StarterContent/HDRI/
 *.VC.db
 *.VC.opendb
 .vs/**/ipch/
+*.VC.db-wal

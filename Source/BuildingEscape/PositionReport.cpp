@@ -10,7 +10,9 @@ UPositionReport::UPositionReport()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+	AActor * Owner = GetOwner();
+	FString ObjectName = Owner != nullptr ? GetOwner()->GetName() : "N/A";
+	UE_LOG(LogTemp, Warning, TEXT("PositionReport reporting for duty on %s!"), *ObjectName);
 }
 
 
@@ -31,4 +33,3 @@ void UPositionReport::TickComponent(float DeltaTime, ELevelTick TickType, FActor
 
 	// ...
 }
-
