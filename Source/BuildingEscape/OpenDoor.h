@@ -36,10 +36,20 @@ private:
 	UPROPERTY(VisibleAnywhere)
 	float OpenAngle = -120.0f;
 
+	float ClosedAngle = -180.0f;
+
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume * PressurePlate;
 
 	UPROPERTY(EditAnywhere)
+	float DoorCloseDelay = 0.8f;
+
+	float LastDoorOpenTime;
+
+	UPROPERTY(EditAnywhere)
 	AActor * ActorThatOpens; // Remember - pawn inherits from Actor
+
+	// Find the owning actor
+	AActor * Owner;
 
 };
