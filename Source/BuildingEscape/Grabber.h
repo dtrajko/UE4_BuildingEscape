@@ -8,6 +8,7 @@
 #include "Runtime/Engine/Public/DrawDebugHelpers.h"
 #include "Runtime/Engine/Public/CollisionQueryParams.h"
 #include "Runtime/Engine/Classes/PhysicsEngine/PhysicsHandleComponent.h"
+#include "Runtime/Engine/Classes/Components/InputComponent.h"
 #include "Grabber.generated.h"
 
 
@@ -29,9 +30,13 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
+	// Ray-case and grab what's in reach
+	void Grab();
+
+private:
 	// How far ahead of the player can we reach in centimeters
 	float Reach = 400.0f;
-
 	UPhysicsHandleComponent * PhysicsHandle = nullptr;
+	UInputComponent * InputComponent = nullptr;
 
 };

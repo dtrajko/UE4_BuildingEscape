@@ -32,6 +32,25 @@ void UGrabber::BeginPlay()
 		UE_LOG(LogTemp, Error, TEXT("[%s]: the PhysicsHandle component is missing!"), *GetOwner()->GetName());
 	}
 
+	// Look for attached input component
+	InputComponent = GetOwner()->FindComponentByClass<UInputComponent>();
+	if (InputComponent)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("[%s]: InputComponent reporting for duty!"), *GetOwner()->GetName());
+		// bind the input action
+		InputComponent->BindAction("Grab", IE_Pressed, this, &UGrabber::Grab);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("[%s]: the InputComponent is missing!"), *GetOwner()->GetName());
+	}
+
+}
+
+
+void UGrabber::Grab()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Grab pressed!"));
 }
 
 
