@@ -32,6 +32,7 @@ public:
 private:
 	// Ray-case and grab what's in reach
 	void Grab();
+	void Release();
 
 private:
 	// How far ahead of the player can we reach in centimeters
