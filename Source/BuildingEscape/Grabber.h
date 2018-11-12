@@ -38,6 +38,9 @@ private:
 	// Return hit for first physics body in reach
 	FHitResult GetFirstPhysicsBodyInReach() const;
 
+	FVector GetReachLineStart() const;
+	FVector GetReachLineEnd() const;
+
 	// Ray-case and grab what's in reach
 	void Grab();
 	// Called when grab is released
