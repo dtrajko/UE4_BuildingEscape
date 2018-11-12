@@ -10,6 +10,7 @@
 #include "Runtime/Engine/Classes/Components/ActorComponent.h"
 #include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
 #include "Runtime/Engine/Classes/GameFramework/Pawn.h"
+#include "Runtime/Engine/Classes/Components/PrimitiveComponent.h"
 #include "OpenDoor.generated.h"
 
 
@@ -33,6 +34,10 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
+	// returns total mass in kg
+	float GetTotalMassOfActorsOnPlate();
+
+private:
 	UPROPERTY(VisibleAnywhere)
 	float OpenAngle = -120.0f;
 
@@ -44,10 +49,10 @@ private:
 	UPROPERTY(EditAnywhere)
 	float DoorCloseDelay = 0.7f;
 
-	float LastDoorOpenTime;
-
 	UPROPERTY(EditAnywhere)
-	AActor * ActorThatOpens; // Remember - pawn inherits from Actor
+	float OpenDoorTriggerMass = 30.0f;
+
+	float LastDoorOpenTime;
 
 	// Find the owning actor
 	AActor * Owner;
