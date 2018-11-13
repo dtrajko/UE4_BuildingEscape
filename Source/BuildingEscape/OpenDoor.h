@@ -11,8 +11,10 @@
 #include "Runtime/Engine/Classes/GameFramework/PlayerController.h"
 #include "Runtime/Engine/Classes/GameFramework/Pawn.h"
 #include "Runtime/Engine/Classes/Components/PrimitiveComponent.h"
+#include "Delegates/Delegate.h"
 #include "OpenDoor.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDoorEvent);
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UOpenDoor : public UActorComponent
@@ -37,22 +39,20 @@ private:
 	// returns total mass in kg
 	float GetTotalMassOfActorsOnPlate();
 
-private:
-	UPROPERTY(VisibleAnywhere)
-	float OpenAngle = -100.0f;
+public:
+	UPROPERTY(BlueprintAssignable)
+	FDoorEvent OnOpen;
 
-	float ClosedAngle = -180.0f;
+	UPROPERTY(BlueprintAssignable)
+	FDoorEvent OnClose;
+
+private:
 
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume * PressurePlate = nullptr;
 
 	UPROPERTY(EditAnywhere)
-	float DoorCloseDelay = 0.7f;
-
-	UPROPERTY(EditAnywhere)
-	float OpenDoorTriggerMass = 30.0f;
-
-	float LastDoorOpenTime;
+	float TriggerMass = 30.0f;
 
 	// Find the owning actor
 	AActor * Owner = nullptr;
