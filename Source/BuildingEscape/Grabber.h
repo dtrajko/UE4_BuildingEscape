@@ -2,16 +2,11 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Runtime/Engine/Classes/Engine/World.h"
-#include "Runtime/Engine/Public/DrawDebugHelpers.h"
-#include "Runtime/Engine/Public/CollisionQueryParams.h"
-#include "Runtime/Engine/Classes/PhysicsEngine/PhysicsHandleComponent.h"
-#include "Runtime/Engine/Classes/Components/InputComponent.h"
-#include "Runtime/Engine/Classes/Components/PrimitiveComponent.h"
 #include "Grabber.generated.h"
 
+class UPhysicsHandleComponent;
+class UInputComponent;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class BUILDINGESCAPE_API UGrabber : public UActorComponent
